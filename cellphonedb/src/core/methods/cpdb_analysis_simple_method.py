@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 from cellphonedb.src.core.core_logger import core_logger
 from cellphonedb.src.core.methods import cpdb_statistical_analysis_helper, cpdb_analysis_helper
@@ -133,7 +134,7 @@ def deconvoluted_result_build(clusters_means: dict, interactions: pd.DataFrame, 
         interactions[['protein_name_2', 'gene_name_2', 'name_2', 'is_complex_2', 'id_cp_interaction', 'receptor_2']]
 
     deconvoluted_result = deconvoluted_result_1.append(deconvoluted_result_2)
-    deconvoluted_result['complex_name'] = pd.np.nan
+    deconvoluted_result['complex_name'] = np.nan
 
     deconvoluted_result.set_index('gene', inplace=True)
 

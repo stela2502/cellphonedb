@@ -4,6 +4,7 @@ from typing import Optional
 
 import click
 import pandas as pd
+import numpy as np
 
 from cellphonedb.src.app.app_logger import app_logger
 from cellphonedb.src.app.cellphonedb_app import output_dir, data_dir
@@ -237,17 +238,17 @@ def generate_proteins(user_protein: Optional[str],
         'transmembrane': False,
         'peripheral': False,
         'secreted': False,
-        'secreted_desc': pd.np.nan,
+        'secreted_desc': np.nan,
         'secreted_highlight': False,
         'receptor': False,
-        'receptor_desc': pd.np.nan,
+        'receptor_desc': np.nan,
         'integrin': False,
         'other': False,
-        'other_desc': pd.np.nan,
+        'other_desc': np.nan,
         'tags': 'To_add',
-        'tags_reason': pd.np.nan,
-        'tags_description': pd.np.nan,
-        'pfam': pd.np.nan,
+        'tags_reason': np.nan,
+        'tags_description': np.nan,
+        'pfam': np.nan,
     }
 
     default_types = {

@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 from cellphonedb.src.core.core_logger import core_logger
 from cellphonedb.src.core.methods import cpdb_statistical_analysis_helper
@@ -25,7 +26,7 @@ def call(meta: pd.DataFrame,
                                                                                   result_precision))
 
     if debug_seed >= 0:
-        pd.np.random.seed(debug_seed)
+        np.random.seed(debug_seed)
         core_logger.warning('Debug random seed enabled. Setted to {}'.format(debug_seed))
 
     interactions_filtered, counts_filtered = prefilters(counts, interactions, counts_data)
@@ -168,7 +169,7 @@ def deconvoluted_result_build(clusters_means: dict, interactions: pd.DataFrame, 
         interactions[['protein_name_2', 'gene_name_2', 'name_2', 'is_complex_2', 'id_cp_interaction', 'receptor_2']]
 
     deconvoluted_result = deconvoluted_result_1.append(deconvoluted_result_2)
-    deconvoluted_result['complex_name'] = pd.np.nan
+    deconvoluted_result['complex_name'] = np.nan
 
     deconvoluted_result.set_index('gene', inplace=True)
 
